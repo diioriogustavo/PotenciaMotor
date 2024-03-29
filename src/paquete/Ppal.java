@@ -1,4 +1,3 @@
-//TODO comentar todo
 
 package paquete;
 
@@ -25,6 +24,7 @@ import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
+import org.apache.commons.io.FileUtils;
 
 /**
  *
@@ -821,10 +821,17 @@ public class Ppal extends javax.swing.JFrame {
             XMLOutputter xml = new XMLOutputter();
             xml.setFormat(Format.getPrettyFormat());
             xml.output(doc, new FileWriter(ruta.getAbsolutePath() + ".ad3"));
+            // Agregar estas lineas si es necesario cambiar el encoding de xml
+//            File file= new File(ruta.getAbsolutePath() + ".ad3");
+//            String content = FileUtils.readFileToString(file,"UTF-8");
+//            String arr[];
+//            arr=content.split("\"UTF-8\"");
+//            content=arr[0]+"ISO-8859-1"+arr[1];
+//            FileUtils.write(file, content, "ISO-8859-1");
+            JOptionPane.showMessageDialog(this, "Se guardó el archivo con éxito", "Guardar archivo", JOptionPane.PLAIN_MESSAGE);
         } catch (IOException ex) {
             Logger.getLogger(Ppal.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 
     /**
